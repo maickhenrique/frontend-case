@@ -1,11 +1,13 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logoImage from "./assets/logo.svg";
-// import Todo from "./Todo";
+import Todo from "./Todo";
 // import { IBanking } from "./IBanking";
 
 import "./App.css";
 
 function App() {
   return (
+    <Router>
     <main id="page">
       <div>
         <img src={logoImage} alt="Cora" title="Cora"></img>
@@ -23,14 +25,20 @@ function App() {
         </p>
         <ul className="buttons">
           <li>
-            <a href="#">TO-DO LIST</a>
+            <Link to="/todo">TO-DO LIST</Link>
           </li>
           <li>
-            <a href="#">IBANKING</a>
+            <Link to="/ibanking">IBANKING</Link>
           </li>
         </ul>
       </div>
+
+      <Routes>
+        <Route path="/todo" element={<Todo />} />
+        {/* <Route path="/ibanking" element={<IBanking />} /> */}
+      </Routes>
     </main>
+  </Router>
   );
 }
 

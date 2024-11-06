@@ -15,10 +15,11 @@ app.get("/health-check", (_, res) => {
 app.post("/auth", (req, res) => {
   const { cpf, password } = req.body;
 
-  if (cpf === user.cpf && password === user.password)
+  if (cpf === user.cpf && password === user.password) {
     return res.status(200).json({
       token: user.token,
     });
+  }
 
   return res.sendStatus(401);
 });
@@ -26,11 +27,11 @@ app.post("/auth", (req, res) => {
 app.get("/list", (req, res) => {
   const token = req.headers.token;
 
-  if (!token || token === user.token) return res.sendStatus(401);
+  if (!token || token !== user.token) return res.sendStatus(401);
 
   return res.json(db);
 });
 
 app.listen(port, () => {
-  console.log(`[api] running on port \`${port}\``);
+  console.log(`[api] running on port ${port}`);
 });

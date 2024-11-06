@@ -1,41 +1,59 @@
 import { useState, useEffect, ChangeEvent } from "react";
-
 import logoImage from "../assets/logo.svg";
 import { TODO_LIST } from "./initial-state";
 import { ITodoTypes } from "./types";
 
 import "./index.css";
 
+// Definição da interface do item
+interface ItemType {
+  id: string;
+  ref: string;
+  title: string;
+  description: JSX.Element;
+  status: string;
+  required: boolean;
+  links?: { name: string; url: string }[];
+}
+
 function Todo() {
   const [items, setItems] = useState(TODO_LIST);
   const [searchInputValue, setSearchInputValue] = useState("");
   const [search, setSearch] = useState("");
 
-  const handleChange = (event: ChangeEvent<unknown>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSearch(searchInputValue);
   };
 
-  const handleDeleteTask = (id: number) => {
-    const editedItems = [];
-
+  const handleDeleteTask = (id: string) => {
+    const editedItems: ItemType[] = [];
+    
     items.map((item) => {
       if (item.id !== id) {
-        editedItems.push(item);
+        const updatedItem: ItemType = {
+          ...item,
+          links: item.links?.map(link => ({
+            name: link.name,
+            url: link.url || ''  
+          })) || []  
+        };
+  
+        editedItems.push(updatedItem);
       }
-    })
+    });
 
     setItems(editedItems);
   };
-
+  
   const handleChangeTaskStatus = (id: string, status: ITodoTypes) => {
-    const reversedStatus = status === "pending" ? "pending" : "done";
+    const reversedStatus = status === "pending" ? "done" : "pending";
     const editedItems = [];
-
+  
     for (let i = 0; i < items.length; i++) {
       if (items[i].id === id) {
         editedItems.push({
@@ -46,17 +64,23 @@ function Todo() {
         editedItems.push(items[i]);
       }
     }
-
+  
     setItems(editedItems);
-  };
+  };  
+
+  // useEffect(() => {
+  //   if (search || items)
+  //     setItems((currentItems) => [
+  //       ...currentItems,
+  //       ...TODO_LIST.filter((item) => item.title.includes(search)),
+  //     ]);
+  // }, [search, items]);
 
   useEffect(() => {
-    if (search || items)
-      setItems((currentItems) => [
-        ...currentItems,
-        ...TODO_LIST.filter((item) => item.title.includes(search)),
-      ]);
-  }, [search, items]);
+    if (search) {
+      setItems(TODO_LIST.filter((item) => item.title.includes(search)));
+    }
+  }, [search]);
 
   return (
     <main id="page" className="todo">
@@ -82,7 +106,7 @@ function Todo() {
             <input
               id="search"
               placeholder="busca por texto..."
-              value={searchValue}
+              value={searchInputValue}
               onChange={handleChange}
             />
             <button type="submit">buscar</button>
@@ -96,9 +120,9 @@ function Todo() {
             )}
             {items.map((item, i) => {
               return (
-                <li>
+                <li key={item.id}>
                   <span>
-                    {i}
+                    {i + 1}
                     {item.required ? "*" : ""}.
                   </span>
                   <div className="todo__content">
@@ -117,21 +141,15 @@ function Todo() {
                       </div>
                     )}
                     <div className="todo__actions">
-                      <button onClick={() => handleDeleteTask(item.uuid)}>
-                        delete
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleChangeTaskStatus(item.id, item.status)
-                        }
-                      >
+                      <button onClick={() => handleDeleteTask(item.id)}>delete</button>
+                      <button onClick={() => handleChangeTaskStatus(item.id, item.status as ITodoTypes)}>
                         change to{" "}
                         <strong>
                           <u>{item.status === "done" ? "pending" : "done"}</u>
                         </strong>
                       </button>
                     </div>
-                  <div>
+                  </div>
                 </li>
               );
             })}

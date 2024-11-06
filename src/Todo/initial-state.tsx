@@ -98,7 +98,7 @@ export const TODO_LIST = [
         <br />O contrato esta no <strong>README.md</strong> do projeto.
       </>
     ),
-    status: "pendin",
+    status: "pending",
     required: true,
     links: [
       {
