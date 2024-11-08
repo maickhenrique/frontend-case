@@ -12,6 +12,7 @@ function Login() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false); 
   const [cpfError, setCpfError] = useState("");
   const navigate = useNavigate();
+  const BASE_URL = "http://localhost:3000" || import.meta.env.VITE_BASE_URL;
 
   const handleChangeCPF = (e: ChangeEvent<HTMLInputElement>) => {
     const newCpf = e.target.value;
@@ -30,7 +31,7 @@ function Login() {
 
   const handleAuth = async () => {
     try {
-      const response = await fetch("http://localhost:3000/auth", {
+      const response = await fetch(`${BASE_URL}/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

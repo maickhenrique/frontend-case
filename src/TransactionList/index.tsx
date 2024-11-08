@@ -33,6 +33,7 @@ const TransactionList = () => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const [filter, setFilter] = useState<'ALL' | 'DEBIT' | 'CREDIT'>('ALL');
   const [isLoading, setIsLoading] = useState(true);
+  const BASE_URL = "http://localhost:3000" || import.meta.env.VITE_BASE_URL;
 
   const navigate = useNavigate();
 
@@ -54,7 +55,7 @@ const TransactionList = () => {
       }
       
       try {
-        const response = await fetch('http://localhost:3000/list', {
+        const response = await fetch(`${BASE_URL}/list`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

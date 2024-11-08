@@ -14,7 +14,16 @@ const app = express();
 app.use(bodyParser.json());
 
 // Configuração do CORS
-app.use(cors({ origin: "http://localhost:5173" }));
+// app.use(cors({ origin: "http://localhost:5173" }));
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (origin === "http://localhost:5173" || origin === "https://frontend-case-two.vercel.app") {
+      return callback(null, true);
+    }
+    callback(new Error("Not allowed by CORS"));
+  }
+}));
 
 const dbUser = {
   cpf: process.env.USER_CPF,
