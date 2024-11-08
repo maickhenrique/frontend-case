@@ -129,3 +129,12 @@
   border: 1px solid var(--color-main);
   background-color: transparent;
 }
+
+button:focus,
+a:focus,
+input:focus,
+.todo__actions button:focus,
+.todo__links a:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}

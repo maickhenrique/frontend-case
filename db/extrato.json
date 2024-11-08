@@ -1,0 +1,294 @@
+{
+    "results": [
+      {
+        "items": [
+          {
+            "id": "abc123def456ghi789",
+            "description": "Compra de produtos eletrônicos",
+            "label": "Compra aprovada",
+            "entry": "CREDIT",
+            "amount": 150000,
+            "name": "João da Silva",
+            "dateEvent": "2024-11-06T08:15:17Z",
+            "status": "COMPLETED",
+            "category": "Shopping",
+            "referenceId": "TX123456789",
+            "location": "Loja Eletrônica XYZ, São Paulo",
+            "colorCode": "#FF5733"
+          }
+        ],
+        "date": "2024-11-06",
+        "balance": 120000
+      },
+      {
+        "items": [
+          {
+            "id": "abc123def456ghi789",
+            "description": "Compra de produtos eletrônicos",
+            "label": "Compra aprovada",
+            "entry": "CREDIT",
+            "amount": 150000,
+            "name": "João da Silva",
+            "dateEvent": "2024-11-06T08:15:17Z",
+            "status": "COMPLETED",
+            "category": "Shopping",
+            "referenceId": "TX123456789",
+            "location": "Loja Eletrônica XYZ, São Paulo",
+            "colorCode": "#FF5733"
+          }
+        ],
+        "date": "2024-11-06",
+        "balance": 120000
+      },
+      {
+        "items": [
+          {
+            "id": "uvw987rst654xyz321",
+            "description": "Assinatura mensal",
+            "label": "Débito automático",
+            "entry": "DEBIT",
+            "amount": 2990,
+            "name": "Empresa XYZ",
+            "dateEvent": "2024-11-07T14:47:46Z",
+            "status": "COMPLETED",
+            "category": "Assinaturas",
+            "referenceId": "TX987654321",
+            "colorCode": "#FF5733"
+          }
+        ],
+        "date": "2024-11-07",
+        "balance": 117010
+      },
+      {
+        "items": [
+          {
+            "id": "abc123def456ghi789",
+            "description": "Compra de produtos eletrônicos",
+            "label": "Compra aprovada",
+            "entry": "CREDIT",
+            "amount": 150000,
+            "name": "João da Silva",
+            "dateEvent": "2024-11-05T08:15:17Z",
+            "status": "COMPLETED",
+            "category": "Shopping",
+            "referenceId": "TX123456789",
+            "location": "Loja Eletrônica XYZ, São Paulo",
+            "colorCode": "#FF5733"
+          }
+        ],
+        "date": "2024-11-05",
+        "balance": 120000
+      },
+      {
+        "items": [
+          {
+            "id": "jkl456mno789pqr123",
+            "description": "Reembolso de viagem",
+            "label": "Reembolso recebido",
+            "entry": "CREDIT",
+            "amount": 350000,
+            "name": "Maria Oliveira",
+            "dateEvent": "2024-11-04T14:23:45Z",
+            "status": "COMPLETED",
+            "category": "Viagem",
+            "referenceId": "TX987654321",
+            "location": "Empresa XPTO, Rio de Janeiro",
+            "colorCode": "#28A745"
+          }
+        ],
+        "date": "2024-11-04",
+        "balance": 145000
+      },
+      {
+        "items": [
+          {
+            "id": "stu789vwx456yz123",
+            "description": "Depósito bancário",
+            "label": "Depósito recebido",
+            "entry": "CREDIT",
+            "amount": 200000,
+            "name": "Carlos Pereira",
+            "dateEvent": "2024-11-05T10:10:10Z",
+            "status": "COMPLETED",
+            "category": "Bancos",
+            "referenceId": "TX567890123",
+            "location": "Banco ABC, Curitiba",
+            "colorCode": "#007BFF"
+          }
+        ],
+        "date": "2024-11-05",
+        "balance": 165000
+      },
+      {
+        "items": [
+          {
+            "id": "def789ghi456abc123",
+            "description": "Pagamento de salário",
+            "label": "Salário recebido",
+            "entry": "CREDIT",
+            "amount": 500000,
+            "name": "Ana Souza",
+            "dateEvent": "2024-11-03T18:00:00Z",
+            "status": "COMPLETED",
+            "category": "Salário",
+            "referenceId": "TX321654987",
+            "location": "Empresa ABC, Belo Horizonte",
+            "colorCode": "#FFC107"
+          }
+        ],
+        "date": "2024-11-03",
+        "balance": 130000
+      },
+      {
+        "items": [
+          {
+            "id": "ghi456jkl789mno123",
+            "description": "Prêmio de loteria",
+            "label": "Prêmio ganho",
+            "entry": "CREDIT",
+            "amount": 750000,
+            "name": "Pedro Santos",
+            "dateEvent": "2024-11-02T12:45:30Z",
+            "status": "COMPLETED",
+            "category": "Loteria",
+            "referenceId": "TX654123987",
+            "location": "Loteria Nacional, Recife",
+            "colorCode": "#6F42C1"
+          }
+        ],
+        "date": "2024-11-02",
+        "balance": 180000
+      },
+      {
+        "items": [
+          {
+            "id": "xyz123abc456def789",
+            "description": "Venda de produtos artesanais",
+            "label": "Venda realizada",
+            "entry": "CREDIT",
+            "amount": 250000,
+            "name": "Beatriz Lima",
+            "dateEvent": "2024-11-01T09:30:00Z",
+            "status": "COMPLETED",
+            "category": "Vendas",
+            "referenceId": "TX789123456",
+            "location": "Feira de Artesanato, Salvador",
+            "colorCode": "#E83E8C"
+          }
+        ],
+        "date": "2024-11-01",
+        "balance": 110000
+      },
+      {
+        "items": [
+          {
+            "id": "abc987xyz654uvw321",
+            "description": "Compra de supermercado",
+            "label": "Compra realizada",
+            "entry": "DEBIT",
+            "amount": 120000,
+            "name": "João da Silva",
+            "dateEvent": "2024-11-06T08:30:00Z",
+            "status": "COMPLETED",
+            "category": "Supermercado",
+            "referenceId": "TX0011223344",
+            "location": "Supermercado ABC, São Paulo",
+            "colorCode": "#FF5733"
+          }
+        ],
+        "date": "2024-11-06",
+        "balance": 100000
+      },
+      {
+        "items": [
+          {
+            "id": "jkl321mno654pqr987",
+            "description": "Pagamento de conta de luz",
+            "label": "Conta paga",
+            "entry": "DEBIT",
+            "amount": 80000,
+            "name": "Maria Oliveira",
+            "dateEvent": "2024-11-05T13:45:00Z",
+            "status": "COMPLETED",
+            "category": "Contas",
+            "referenceId": "TX2233445566",
+            "location": "Companhia Energética, Rio de Janeiro",
+            "colorCode": "#28A745"
+          }
+        ],
+        "date": "2024-11-05",
+        "balance": 92000
+      },
+      {
+        "items": [
+          {
+            "id": "stu123vwx456yz789",
+            "description": "Mensalidade da academia",
+            "label": "Mensalidade debitada",
+            "entry": "DEBIT",
+            "amount": 150000,
+            "name": "Carlos Pereira",
+            "dateEvent": "2024-11-04T07:00:00Z",
+            "status": "COMPLETED",
+            "category": "Saúde",
+            "referenceId": "TX3344556677",
+            "location": "Academia XYZ, Curitiba",
+            "colorCode": "#007BFF"
+          }
+        ],
+        "date": "2024-11-04",
+        "balance": 70000
+      },
+      {
+        "items": [
+          {
+            "id": "uvw654xyz321stu987",
+            "description": "Reserva em restaurante",
+            "label": "Pagamento efetuado",
+            "entry": "DEBIT",
+            "amount": 60000,
+            "name": "Ana Souza",
+            "dateEvent": "2024-11-03T19:30:00Z",
+            "status": "COMPLETED",
+            "category": "Restaurantes",
+            "referenceId": "TX5566778899",
+            "location": "Restaurante Gourmet, Belo Horizonte",
+            "colorCode": "#FFC107"
+          }
+        ],
+        "date": "2024-11-03",
+        "balance": 54000
+      },
+      {
+        "items": [
+          {
+            "id": "mno456pqr789jkl123",
+            "description": "Pagamento de aluguel",
+            "label": "Aluguel debitado",
+            "entry": "DEBIT",
+            "amount": 250000,
+            "name": "Beatriz Lima",
+            "dateEvent": "2024-11-02T12:00:00Z",
+            "status": "COMPLETED",
+            "category": "Moradia",
+            "referenceId": "TX6677889900",
+            "location": "Imobiliária XY, Salvador",
+            "colorCode": "#E83E8C"
+          }
+        ],
+        "date": "2024-11-02",
+        "balance": 12000
+      }
+    ],
+    "itemsTotal": 14,
+    "monthlySummary": {
+      "January": {
+        "totalSpent": 50000,
+        "totalCredits": 20000
+      }
+    },
+    "suggestions": [
+      "Verificar assinatura de Netflix"
+    ]
+  }
+  

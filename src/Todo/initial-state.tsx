@@ -80,7 +80,7 @@ export const TODO_LIST = [
     links: [
       {
         name: "endpoint de autenticação",
-        link: "http://localhost:3000/auth",
+        url: "http://localhost:3000/auth",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const TODO_LIST = [
       },
       {
         name: "endpoint de lista",
-        link: "http://localhost:3000/list",
+        url: "http://localhost:3000/list",
       },
     ],
   },
@@ -135,7 +135,7 @@ export const TODO_LIST = [
     links: [
       {
         name: "figma",
-        link: "https://www.figma.com/file/TXxt0VFxbzDoho4tmt9XPP/Teste_FrontWeb?type=design&node-id=5-3396&mode=dev",
+        url: "https://www.figma.com/file/TXxt0VFxbzDoho4tmt9XPP/Teste_FrontWeb?type=design&node-id=5-3396&mode=dev",
       },
     ],
   },
