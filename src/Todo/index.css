@@ -59,6 +59,7 @@
   font-size: 2em;
   line-height: 1em;
   padding-right: 10px;
+  color: #000;
 }
 
 .todo__content {
@@ -70,6 +71,7 @@
   font-size: 2em;
   line-height: 1em;
   margin-bottom: 10px;
+  color: #000;
 }
 
 .todo__content [data-type] {

@@ -1,11 +1,10 @@
 const express = require("express");
 const db = require("./db/transactions.json");
-const dbUser = require("./db/user.json");
+// const dbUser = require("./db/user.json");
 const bodyParser = require("body-parser");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocs = require("./src/swaggerConfig");
 const cors = require("cors"); 
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const extrato = require("./db/extrato.json");
 
@@ -16,6 +15,12 @@ app.use(bodyParser.json());
 
 // Configuração do CORS
 app.use(cors({ origin: "http://localhost:5173" }));
+
+const dbUser = {
+  cpf: process.env.USER_CPF,
+  password: process.env.USER_PASSWORD,
+  token: process.env.USER_TOKEN,
+};
 
 // Rota do Swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
@@ -66,12 +71,12 @@ app.get("/health-check", (_, res) => {
 app.post("/auth", (req, res) => {
   const { cpf, password } = req.body;
 
-  if (dbUser.cpf === cpf && dbUser.password === password) {
-    return res.status(200).json({ token: dbUser.token });
+  if (process.env.USER_CPF === cpf && process.env.USER_PASSWORD === password) {
+    return res.status(200).json({ token: process.env.USER_TOKEN });
   }
-  return res.sendStatus(401);
+  
+  return res.sendStatus(401);  
 });
-
 
 /**
  * @swagger
@@ -107,8 +112,9 @@ app.post("/auth", (req, res) => {
  *       401:
  *         description: Não autorizado
  */
+
 app.get("/list", (req, res) => {
-  const fixedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+  const fixedToken = process.env.USER_TOKEN;
   const authorizationHeader = req.headers.authorization;
 
   if (authorizationHeader !== `Bearer ${fixedToken}`) {

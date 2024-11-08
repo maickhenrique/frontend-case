@@ -30,24 +30,27 @@ function Login() {
 
   const handleAuth = async () => {
     try {
-      const response = await fetch("http://localhost:3000/auth", { 
+      const response = await fetch("http://localhost:3000/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          cpf: cpf,         
-          password: password, 
+          cpf: cpf,
+          password: password,
         }),
       });
   
       if (response.ok) {
         const data = await response.json();
-        const { token } = data; 
+        const { token } = data;
   
-       
-        localStorage.setItem("authToken", token);
-        console.log("Autenticação bem-sucedida");
+        if (token) {
+          localStorage.setItem("authToken", token);
+          console.log("Token armazenado com sucesso:", token);
+        } else {
+          console.error("Token não encontrado na resposta da API");
+        }
   
         navigate("/transactions");
       } else {
@@ -59,6 +62,8 @@ function Login() {
       alert("Erro na requisição, tente novamente.");
     }
   };
+  
+  
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);

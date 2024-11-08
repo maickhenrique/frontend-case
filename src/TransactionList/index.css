@@ -247,3 +247,18 @@ td {
 .logout:hover {
   background-color: var(--color-main);
 }
+
+.rotating-logo {
+  animation: spin 2s linear infinite; 
+  width: 100px; 
+  height: auto; 
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); 
+  }
+}

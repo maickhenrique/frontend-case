@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import debitImg from "../assets/debit.svg";
 import creditImg from "../assets/credit.svg";
 import { useNavigate } from 'react-router-dom';
+import logoImage from '../assets/logo.svg'
 import "./index.css";
 
 interface ITransaction {
@@ -31,18 +32,27 @@ const TransactionList = () => {
   const [filteredTransactions, setFilteredTransactions] = useState<ITransaction[]>([]);
   const [itemsTotal, setItemsTotal] = useState(0);
   const [filter, setFilter] = useState<'ALL' | 'DEBIT' | 'CREDIT'>('ALL');
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('userToken');
+    localStorage.removeItem('authToken');
     navigate('/');
   };
 
   useEffect(() => {
     const fetchTransactions = async () => {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+      setTimeout(async () => {
 
+      const token = localStorage.getItem("authToken");
+      
+      if (!token) {
+        console.error("Token não encontrado");
+        window.location.href = '/ibanking'; 
+        return;  
+      }
+      
       try {
         const response = await fetch('http://localhost:3000/list', {
           method: 'GET',
@@ -51,25 +61,28 @@ const TransactionList = () => {
             'Authorization': `Bearer ${token}`,
           },
         });
-
+  
         if (!response.ok) {
           console.error('Falha ao buscar transações. Status:', response.status);
           if (response.status === 401) {
             setTimeout(() => {
               window.location.href = '/ibanking';
-            }, 1000);
+            }, 100);
           }
           return;
         }
-
+  
         const data: IResponseList = await response.json();
         setItemsTotal(data.itemsTotal);
         setTransactions(data.results.flatMap((result: IResult) => result.items));
       } catch (error) {
         console.error("Erro ao buscar as transações:", error);
+      } finally {
+        setIsLoading(false); 
       }
+    }, 3000);
     };
-
+  
     fetchTransactions();
   }, []);
 
@@ -125,6 +138,14 @@ const TransactionList = () => {
   };
 
   const groupedTransactions = groupByDate(filteredTransactions);
+
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <img src={logoImage} alt="Cora" title="Cora" className="rotating-logo" />
+      </div>
+    );
+  }
 
   return (
     <div className="header">

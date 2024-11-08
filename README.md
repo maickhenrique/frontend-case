@@ -3,7 +3,36 @@
 Teste para vagas de frontend da [Cora](https://www.cora.com.br) :heartbeat:
 <br />
 
-# Quick Menu
+# Projeto de API - Documentação
+
+## Swagger UI
+
+A documentação da API pode ser acessada através do Swagger UI. O Swagger oferece uma interface interativa para testar todos os endpoints disponíveis.
+
+- **URL da Swagger UI**: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+- **Versão da API**: v1.0.0
+
+---
+
+## Variáveis de Ambiente (Env)
+
+Este projeto utiliza variáveis de ambiente para configurar diferentes aspectos da aplicação, como credenciais. 
+
+### Arquivo `.env` de Exemplo
+
+```env
+# Configurações env
+USER_CPF=
+USER_PASSWORD=
+USER_TOKEN=
+```
+
+---
+
+# Arquivo transactions.json
+
+  Criei um arquivo transactions.json em db para realizar alguns testes. Estou utilizando ele no projeto
+
 
 - [Hey There](#hey-there-wave)
   - [Principais tarefas](#principais-tarefas)
